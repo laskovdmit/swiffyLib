@@ -10,4 +10,12 @@ $('div').click(function() {
 
 // console.log($('div').eq(2).find('.more'));
 // console.log($('.some').closest('.findme'));
-console.log($('.findme').siblings());
+// console.log($('.findme').siblings());
+
+$('button').click(function() {
+    $(this).fadeOut(1000);
+
+    setTimeout(() => {
+        $(this).fadeIn(1000);
+    }, 2000);
+});
