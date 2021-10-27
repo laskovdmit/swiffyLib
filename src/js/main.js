@@ -1,21 +1,26 @@
-import './lib/lib';
+import $ from './lib/lib';
 
-$('button').click(function() {
-    $('div').eq(1).toggleClass('active');
+$('#first').on('click', () => {
+    $('div').eq(1).fadeToggle(800);
 });
 
-$('div').click(function() {
-    console.log($(this).index());
+$('[data-count="second"]').on('click', () => {
+    $('div').eq(2).fadeToggle(800);
 });
 
-// console.log($('div').eq(2).find('.more'));
-// console.log($('.some').closest('.findme'));
-// console.log($('.findme').siblings());
-
-$('button').click(function() {
-    $(this).fadeOut(1000);
-
-    setTimeout(() => {
-        $(this).fadeIn(1000);
-    }, 2000);
+$('button').eq(2).click(() => {
+    $('.w-500').fadeToggle(800);
 });
+
+$('.wrap').html(
+    `<div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="dropdownMenuBtn">Dropdown button</button>
+        <div class="dropdown-menu" data-toggle-id="dropdownMenuBtn">
+            <a href="#" class="dropdown-item">Action 1</a>
+            <a href="#" class="dropdown-item">Action 2</a>
+            <a href="#" class="dropdown-item">Action 3</a>
+        </div>
+    </div>`
+);
+
+$('.dropdown-toggle').dropdown();
