@@ -44,6 +44,7 @@ $.prototype.find = function(selector) {
     const copyObj = Object.assign({}, this);
 
     for (let i = 0; i < copyObj.length; i++) {
+        console.log(copyObj);
         const arr = copyObj[i].querySelectorAll(selector);
         if (arr.length == 0) {
             continue;

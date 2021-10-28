@@ -66,8 +66,7 @@ $.prototype.fadeOut = function(dur, fin) {
 };
 
 $.prototype.fadeToggle = function (dur, display, fin) {
-    for (let i = 0; i < this.length; i++) {
-
+    for (let i = 0; i < this.length; i++) {        
         if (window.getComputedStyle(this[i]).display === 'none') {
             this._setFadeIn(i, dur, display, fin);
         } else {
