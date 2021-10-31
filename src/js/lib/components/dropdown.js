@@ -1,6 +1,6 @@
 import $ from '../core';
 
-$.prototype.dropdown = function () {
+$.prototype.dropdown = function () { //Создает dropdown-меню по заданной разметке
     for (let i = 0; i < this.length; i++) {
         const id = this[i].getAttribute('id');
 
@@ -10,4 +10,4 @@ $.prototype.dropdown = function () {
     }
 };
 
-$('.dropdown-toggle').dropdown();
+// $('.dropdown-toggle').dropdown();

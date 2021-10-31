@@ -1,6 +1,6 @@
 import $ from '../core';
 
-$.prototype.show = function() {
+$.prototype.show = function() { //Устанавливает inline стиль display в ""
     for(let i = 0; i < this.length; i++) {
         if (!this[i].style) {
             continue;
@@ -11,7 +11,7 @@ $.prototype.show = function() {
     return this;
 };
 
-$.prototype.hide = function() {
+$.prototype.hide = function() { //Устанавливает inline стиль display в "none"
     for(let i = 0; i < this.length; i++) {
         if (!this[i].style) {
             continue;
@@ -22,7 +22,7 @@ $.prototype.hide = function() {
     return this;
 };
 
-$.prototype.toggle = function() {
+$.prototype.toggle = function() { //Переключает inline стиль display в "none" и обратно в ""
     for(let i = 0; i < this.length; i++) {
         if (!this[i].style) {
             continue;

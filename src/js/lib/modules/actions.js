@@ -1,6 +1,6 @@
 import $ from '../core';
 
-$.prototype.html = function(content) {
+$.prototype.html = function(content) { //Возваращает или изменяет html содержимое элемента 
     for (let i = 0; i < this.length; i++) {
         if (content) {
             this[i].innerHTML = content;
@@ -12,7 +12,7 @@ $.prototype.html = function(content) {
     return this;
 };
 
-$.prototype.eq = function(i) {
+$.prototype.eq = function(i) { //Возвращает элемент с порядковым номером i
     const swap = this[i];
     const objLength = Object.keys(this).length;
 
@@ -26,7 +26,7 @@ $.prototype.eq = function(i) {
     return this;
 };
 
-$.prototype.index = function() {
+$.prototype.index = function() { //Возвращает текущий порядковый номер относительно своего родителя
     const parent = this[0].parentNode;
     const childs = [...parent.children];
 
@@ -37,14 +37,13 @@ $.prototype.index = function() {
     return childs.findIndex(findMyIndex);
 };
 
-$.prototype.find = function(selector) {
+$.prototype.find = function(selector) { //Возвращает дочерние элементы по заданному селектору, которые нашел у родителей
     let numberOfItems = 0;
     let counter = 0;
 
     const copyObj = Object.assign({}, this);
 
     for (let i = 0; i < copyObj.length; i++) {
-        console.log(copyObj);
         const arr = copyObj[i].querySelectorAll(selector);
         if (arr.length == 0) {
             continue;
@@ -68,17 +67,16 @@ $.prototype.find = function(selector) {
     return this;
 };
 
-$.prototype.closest = function (selector) {
+$.prototype.closest = function (selector) { //Возвращает ближайший родительский элемент по заданному селектору. Если не найден - возвращает пустой $()
     let counter = 0;
 
     for (let i = 0; i < this.length; i++) {
         if (this[i].closest(selector)) {
             this[i] = this[i].closest(selector);
+            counter++;
         } else {
-            this[i] = undefined;
+            delete this[i];
         }
-        
-        counter++;
     }
 
     const objLength = Object.keys(this).length;
@@ -89,7 +87,7 @@ $.prototype.closest = function (selector) {
     return this;
 };
 
-$.prototype.siblings = function () {
+$.prototype.siblings = function () { //Возвращает всех соседей относительно родительского элемента, кроме себя
     let numberOfItems = 0;
     let counter = 0;
 

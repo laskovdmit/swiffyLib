@@ -1,6 +1,6 @@
 import $ from '../core';
 
-$.prototype.carousel = function () {
+$.prototype.carousel = function () { //Создает функционал карусели (слайдера) из 4 фото на основе заданной разметки (ее нужно скопировать и вставить). Можно изменять только ссылки на изображения в тегах img.
     for (let i = 0; i < this.length; i++) {
         const width = window.getComputedStyle(this[i].querySelector('.carousel-inner')).width;
         const slides = this[i].querySelectorAll('.carousel-item');
@@ -71,4 +71,4 @@ $.prototype.carousel = function () {
     }
 };
 
-$('.carousel').carousel();
+// $('.carousel').carousel();

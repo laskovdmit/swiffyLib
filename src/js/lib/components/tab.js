@@ -1,6 +1,6 @@
 import $ from '../core';
 
-$.prototype.tab = function() {
+$.prototype.tab = function() { //Создает табы по заданной разметке
     for (let i = 0; i < this.length; i++) {
         $(this[i]).on('click', () => {
             $(this[i])
@@ -16,4 +16,4 @@ $.prototype.tab = function() {
     }
 };
 
-$('[data-tabpanel] .tab-item').tab();
+// $('[data-tabpanel] .tab-item').tab();

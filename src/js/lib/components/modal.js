@@ -1,6 +1,6 @@
 import $ from '../core';
 
-$.prototype.getScroll = function() {
+$.prototype.getScroll = function() { //Получает ширину полосы прокрутки
     let div = document.createElement('div');
 
     div.style.width = '50px';
@@ -15,7 +15,10 @@ $.prototype.getScroll = function() {
     return scrollWidth;
 };
 
-$.prototype.modal = function(created) {
+$.prototype.modal = function(created) { //Если модальное окно создано вручную, то передавать аргумент created не нужно, т.к. модальное окно удалиться.
+// Навешивает обработчик события на кнопку, полученную через $(), которая должна иметь атрибут data-target со значением id модального окна (например [data-target="#exampleModal"]).
+// Вызываемое модальное окно должно иметь id, которое записано в data-target кнопки (в данном случае id="exampleModal").
+// Модальное окно будет закрываться по клику на подложку или на элементы с атрибутом data-close.
     let scroll = this.getScroll();
 
     for (let i = 0; i < this.length; i++) {
@@ -56,7 +59,7 @@ $.prototype.modal = function(created) {
     }
 };
 
-$('[data-toggle="modal"]').modal();
+// $('[data-toggle="modal"]').modal();
 
 $.prototype.createModal = function ({text, btns} = {}) {
     for (let i = 0; i < this.length; i++) {
